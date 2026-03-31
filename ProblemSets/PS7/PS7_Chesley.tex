@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularray}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{codehigh}
+\usepackage{placeins}
+\usepackage[normalem]{ulem}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{siunitx}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+
+
+\title{Problem Set 7}
+\author{Murphy Chesley}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Model Summary}
+\input{summary_table.tex}
+
+Log wages are missing at a rate of 25\% likely due to MNAR factors. In this example, wages are self-reported, so some women might not want to answer their true wage for personal reasons. This is MNAR as it is likely a problem of selection bias with women choosing to not answer, or selecting to not be in that part of the sample.
+
+
+\section{Regression Table}
+\input{regression_table.tex}
+
+With the real $\hat{\beta}$ being 0.093, the results vary quite a bit. 
+
+Deleting the rows without answers, as in listwise, takes out potentially valuable data and limits the amount of observations. This could be a problem as it weakens the statistical power of the estimate. Interestingly, the estimates of listwise are the same as the estimates in predictive imputation which is due to the fact that the predictive estimate uses the listwise observations to predict its own observations.
+
+Mean imputation deflates the variation and results in differing estimates. The upside is that it does not change the amount of observations, however, this understates the variance in the data. We can also see that this estimate is 0.05, which is the estimate farthest from the true $\hat{\beta}$. This could be due to how the missing values get pushed toward the mean, so it could produce a lower effect than if it had not been imputed.
+
+Predictive imputation seemed to give the same estimates as listwise, but with a smaller standard error. This is likely due to the fact that listwise imputation has fewer observations. Predictive imputation maintains the larger observations, but this doesn't necessarily give more accurate data. However, both listwise and predictive imputation were the closest to the true value of $\hat{\beta}$, so that could mean something.
+
+Multiple imputation is known as the "most accurate" as it takes multiple different imputations and averages the estimates. In this example, the multiple imputation estimate landed as the second furthest from the true value, but this may be due to unobserved factors that come with MNAR data.
+
+\section{Final Project Progress}
+
+I have started to gather sources for the introductory part of my paper which would tell the history of emission standards in the US and the impacts that we have seen today. In addition to the total GHG emission data from the EPA, I will be using tables from the US Energy Information Administration that detail the renewable energy consumption, CO2 emissions, and natural gas/biofuel consumption. These tables have the most up to date data spanning 2022-2025 including predictions into 2026. Since this is looking at policy effects, I will likely be using a differences in differences model to estimate the effect that the Clean Power Plan had on total emissions. However, this plan was only in action for 4 years before it was repealed, so I will also use more recent data to see if it has had a more long run effect. 
+
+
+
+\end{document}
