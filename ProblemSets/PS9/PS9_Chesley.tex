@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Problem Set 9}
+\author{Murphy Chesley}
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+\section{Question 7}
+We have 61 more variables in the training data than in the original housing data. The prepped data has 75 columns and 404 rows. The original has 14 columns and 404 rows.
+
+\section{Question 8}
+With the LASSO model, the optimal $\lambda$ was found to be 0.00356, the in-sample RMSE was 0.0695 and the out-of-sample RMSE was 0.211.
+
+\section{Question 9}
+In the RIDGE model, the optimal $\lambda$ was found to be 0.0233, the in-sample RMSE was 0.0695 as well and the out-of-sample RMSE was 0.214. 
+
+\section{Question 10}
+We would not be able to estimate a simple linear regression in a model with more columns than rows.
+
+
+Since the out-of-sample estimates are roughly 3x more than the in-sample, we have some relatively high-variance using these models. Having a lower in-sample RMSE (0.0695) suggests that we have low-bias which would align with the bias-variance trade-off. We regularized to help with some overfitting (high-variance) issues, but we still remain on the high-variance side of the tradeoff.
+
+
+\end{document}
