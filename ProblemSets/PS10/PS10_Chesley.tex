@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Problem Set 10}
+\author{Murphy Chesley}
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Model Comparison: Best Hyperparameters and Test Accuracy}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Algorithm} & \textbf{Hyperparameter(s)} & \textbf{CV Accuracy} & \textbf{Test Accuracy} \\
+\midrule
+Logit  & $\lambda = 0.00$                                      & 0.85 & 0.85 \\
+Tree   & cost complexity $= 0.00$, depth $= 15$, min $n = 20$ & 0.87 & 0.87 \\
+NNet   & hidden units $= 2$, $\lambda = 1.00$                  & 0.85 & 0.85 \\
+KNN    & neighbors $= 29$                                      & 0.84 & 0.84 \\
+SVM    & cost $= 1.00$, $\sigma = 0.25$                        & 0.86 & 0.86 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The out of sample performance is roughly the same only varying by 0.03 from the best (tree) and worst (kNN). This shows that each algorithm does well out of sample and that the data is generally well estimated. No algorithm is inherently better in this case as there is not one with a drastic difference.
+
+\end{document}
