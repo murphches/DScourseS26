@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{graphicx}
+\documentclass[12pt,english]{article}
+\usepackage{mathptmx}
+ 
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkblue}{RGB}{0.,0.,139.}
+ 
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+ 
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{setspace}
+ 
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{pdflscape}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,
+ colorlinks,citecolor=black,filecolor=black,
+ linkcolor=black,urlcolor=black]
+ {hyperref}
+\usepackage[all]{hypcap}
+\usepackage{breakurl}
+ 
+\linespread{2}
+ 
+\begin{document}
+ 
+\begin{singlespace}
+\title{Cap-and-Trade and Public Health: Evidence from New Jersey's Exit and Reentry into the Regional Greenhouse Gas Initiative\thanks{Acknowledgements here, if any.}}
+\end{singlespace}
+ 
+\author{Murphy Chesley\thanks{Department of Economics, University of Oklahoma.\\
+E-mail~address:~\href{mailto:murphy.chesley@ou.edu}{murphy.chesley-1@ou.edu}}}
+ 
+\date{May 2026}% Required for inserting images
+
+\title{Problem Set 11}
+\author{Murphy Chesley}
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Throughout the late twentieth and early twenty first century, policymakers, environmentalists, and economists alike attempted to find solutions to the growing greenhouse gas (GHG) problem. GHGs, however, are not inherently evil and are in fact the reason the Earth is hospitable for life as Earth’s atmosphere uses them to retain the sun’s heat and keep the temperatures stable (Kweku et al., 2018). The GHGs that are most commonly released are carbon dioxide (CO2), nitrous oxide (N2O), and methane (Filonchyk et al., 2024). Each of these gases develop under different conditions and have been exacerbated by human processes. That is to say, these naturally occurring gases have seen exponential increases as a result of energy consumption, fossil fuel combustion, and agriculture which result in heat not being able to escape the atmosphere and temperatures rising (Kweku et al., 2018). 
+-	History of US environmental policy will go here.
+o	EPA inception in 2017 (Hahn, 1994)
+	Air pollution acts substantially decreased lead, total suspended particulates, and sulfur oxide from 1970-1990 (Hahn 1994)
+•	Clean Air Act had full bipartisan support
+
+\section{Literature Review}\label{sec:litreview}
+
+\subsection*{Cap-and-Trade}
+
+\begin{itemize}
+    \item Economic theory
+    \begin{itemize}
+        \item Competition
+        \item Market-based policy
+        \item Auctions and free allocation
+        \item Ceilings vs. floors
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Regional Greenhouse Gas Initiative}
+
+\begin{itemize}
+    \item Northeastern states: ME, MA, NH, VT, CT, DE, NY, RI, MD
+    \begin{itemize}
+        \item NJ Exit by Chris Christie
+        \item NJ reentry by Phil Murphy
+    \end{itemize}
+    \item Cap-and-trade uses
+    \item Revenue generation: ``the program's auctions have generated more 
+          than \$1 billion in revenues for the participating 
+          states'' \citep{schmalensee2017}
+    \item Performance
+    \begin{itemize}
+        \item Emission reduction
+        \item Leakage into surrounding states
+    \end{itemize}
+\end{itemize}
+
+\section{Data}
+The primary data that was used to assess GHG emissions was the EPA’s Inventory of U.S. Greenhouse Gas Emissions and Sinks by State: 1990-2022 (EPA 2022). This is a publicly available dataset that is compiled each year using estimates from the Greenhouse Gas Reporting Program (GHRGP). This program “requires reporting of greenhouse gas (GHG) data and other relevant information from large GHG emission sources, fuel and industrial gas suppliers, and CO2 injection sites in the United States” (EPA 2025). This data set includes the economic sector, subsector, location, type of GHG emitted, and the amount for the years 1990 to 2022. 
+Since the area of analysis is the nine states complying with the RGGI and New Jersey, the data was narrowed down to include only emitters in those particular states. The RGGI regulated the energy sector, so the data was narrowed down to only those entries with “energy” as the sector. In addition, 9 years of analysis were chosen: 2000, 2003, 2006, 2009, 2012, 2015, 2018, 2020, and 2022. This allows for between year comparison as well as certain time markers for events related to the RGGI. The events were the implementation of the RGGI (2009), New Jersey’s exit (2012), and New Jersey’s reentry (2020). 
+The data that was used to assess health risks was the Behavioral Risk Factor Surveillance System (BRFSS) Prevalence Data that is administered by the CDC each year. This questionnaire is a “random-digit-dialed telephone survey of the noninstitutionalized civilian population 18 years of age and older” (CDC, 2023). Within this survey, participants are asked whether they had ever received an asthma diagnosis and whether they had asthma at the time of the call. Similar to the GHG dataset, the data was cleaned to only include the specific states and test years for the analysis. The variables that were gathered were based on the percent of asthma present in the sample data. 
+
+\Section{Empirical Methods}
+This analysis utilizes a difference-in-differences model to estimate the effect that New Jersey’s exit and reentry had on carbon emission totals and asthma rates in RGGI member states and New Jersey. 		
+\begin{equation}
+\label{eq:asthma}
+\text{Emissions}_{st} = \alpha + \beta_{1}(\text{NJExit}_{s} \times \text{Post}_{2012,t}) + \beta_{2}(\text{NJReentry}_{s} \times \text{Post}_{2020,t}) + \gamma_{s} + \delta_{t} + \varepsilon_{st}
+\end{equation}
+$\text{Emissions}_{st}$ is an outcome variable for state $s$ in year $t$ that measures 
+CO$_2$ emissions in the power sector as measured in teragrams. $\text{NJExit}_{s} \times 
+\text{Post}_{2012,t}$ is the interaction term that is equal to 1 only for the state of 
+New Jersey in the years after the exit and 0 otherwise. $\beta_{1}$ will be the estimate 
+for that exit interaction, measuring the average difference in New Jersey outcomes relative 
+to the core RGGI states that stayed in the program post-2012. $\beta_{2}$ will be the 
+estimate for that reentry interaction, measuring the average difference in New Jersey 
+outcomes relative to the core RGGI states that stayed in the program since implementation. 
+A positive estimate suggests that deregulation increased CO$_2$ emissions in New Jersey 
+and a negative estimate would suggest a decrease in CO$_2$ emissions in New Jersey. 
+$\gamma_{s}$ is the state fixed effect that absorbs time-invariant differences across 
+states. $\delta_{t}$ is the year fixed effect that absorbs common shocks affecting all 
+states simultaneously (e.g., recessions or price swings). $\varepsilon_{st}$ is the error 
+term clustered at the state level to account for serial correlation over time.
+\begin{equation}
+\label{eq:asthma}
+\text{Asthma}_{st} = \alpha + \beta_{1}(\text{NJExit}_{s} \times \text{Post}_{2012,t}) + \beta_{2}(\text{NJReentry}_{s} \times \text{Post}_{2020,t}) + \gamma_{s} + \delta_{t} + \varepsilon_{st}
+\end{equation}
+This model will be similar to the emissions model above with the only change being in the outcome variable and the measured beta. $\text{Asthma}_{st}$ is an outcome variable for state s in year t that measures the asthma rate. In this case, the betas will measure the average difference in New Jersey asthma rates relative to the core RGGI states.
+
+\section{Findings}
+After running both difference-in-differences models, it was found that after exiting the RGGI, New Jersey’s CO2 emissions increased by 4.54$\%$ in comparison to the core RGGI states that stayed in and is significant at the 5$\%$ level. This suggests that deregulation did increase their CO2 emission totals. Upon their 2020 reentry, the CO2 emissions declined by 0.916$\%$ in comparison to that of the RGGI core states. This is not found to be a significant estimate, however, which could suggest other reasons outside of the RGGI. 
+After exiting the RGGI in 2012, New Jersey’s asthma rate increased by 0.244$\%$ relative to core RGGI states, however, this is also insignificant and points toward another reason for this increase. The reentry in 2020 did find a decrease in the adult asthma rate by - 0.524$\%$ significant at the 5$\%$ level, suggesting that their reentry was a potential cause for this decrease
+
+\section{Conclusion}
+Still in the works.
+
+\newpage
+\bibliography{PS11_Chesley}
+
+\end{document}
